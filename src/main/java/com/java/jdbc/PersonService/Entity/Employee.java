@@ -1,8 +1,9 @@
 package com.java.jdbc.PersonService.Entity;
 
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 import java.util.Date;
-@XmlRootElement
+@XmlType
 public class Employee {
     private long employeeId;
     private String firstName;

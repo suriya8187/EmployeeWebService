@@ -1,6 +1,7 @@
 package com.java.jdbc.PersonService.DALObjects;
 
 import com.java.jdbc.PersonService.Entity.Employee;
+import com.java.jdbc.PersonService.Entity.Employees;
 import com.java.jdbc.PersonService.helpers.JDBCHelper;
 
 import java.sql.Connection;
@@ -19,9 +20,11 @@ public class EmployeeImpl {
             e.printStackTrace();
         }
     }
-    public List<Employee> getEmployees() throws SQLException {
+
+    public Employees getEmployees() throws SQLException {
         Employee employee=new Employee();
-        List<Employee> employees=new ArrayList<Employee>();
+        Employees employees=new Employees();
+        List<Employee> employeelist=new ArrayList<Employee>();
         Statement stmt=null;
         Connection con=JDBCHelper.getConnection();
         System.out.println("Connection Established");
@@ -42,8 +45,10 @@ public class EmployeeImpl {
               employee.setCommissionPct(rs.getFloat("COMMISSION_PCT"));
               employee.setManagerId(rs.getLong("MANAGER_ID"));
               employee.setDepartmentId(rs.getLong("DEPARTMENT_ID"));
-              employees.add(employee);
+              employeelist.add(employee);
           }
+          employees.setEmployees(employeelist);
         return employees;
     }
+
 }
