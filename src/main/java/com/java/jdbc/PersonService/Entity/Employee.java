@@ -1,9 +1,13 @@
 package com.java.jdbc.PersonService.Entity;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 import java.util.Date;
-@XmlType
+@XmlRootElement(name = "Employee")
+@XmlType(namespace = "http://com.java.maven.jdbc.Employee")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Employee {
     private long employeeId;
     private String firstName;
